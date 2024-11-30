@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeit/logn_screen%20copy.dart';
-// Import the new screen
+import 'package:timeit/logn_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      home: LoginScreen(),
     );
   }
 }
+
