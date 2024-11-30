@@ -23,9 +23,9 @@ class RoleSelectionScreen extends StatefulWidget {
 }
 
 class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
-  String? selectedRole;  // To store the selected role
+  String? selectedRole; // To store the selected role
 
-  final List<String> roles = ['H.O.D', 'Faculty', 'Student'];  // Available roles
+  final List<String> roles = ['H.O.D', 'Faculty', 'Student']; // Available roles
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +53,10 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
             const Text(
               'Please select a role to continue:',
               style: TextStyle(
-                fontSize: 20,  // Slightly larger font size
-                fontWeight: FontWeight.w600,  // Semi-bold font weight
-                color: Color(0xFF1F1F1F),  // Darker color for better contrast
-                letterSpacing: 0.8,  // Slight letter spacing for modern look
+                fontSize: 20, // Slightly larger font size
+                fontWeight: FontWeight.w600, // Semi-bold font weight
+                color: Color(0xFF1F1F1F), // Darker color for better contrast
+                letterSpacing: 0.8, // Slight letter spacing for modern look
                 shadows: [
                   BoxShadow(
                     color: Colors.black26,
@@ -93,15 +93,34 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                       // Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen(role: selectedRole)));
                     },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0XFF0B0B60),  // Button color
-                 // Text color
+                backgroundColor: const Color(0XFF0B0B60), // Button color
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),  // Rounded corners
+                  borderRadius: BorderRadius.circular(12), // Rounded corners
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32), // Padding inside the button
+                padding: const EdgeInsets.symmetric(
+                    vertical: 16, horizontal: 32), // Padding inside the button
               ),
               child: const Text('Next'),
             ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        width: double.maxFinite,
+        height: 80,
+        decoration: const BoxDecoration(
+          color: Color(0XFF0B0B60),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40),
+            topRight: Radius.circular(40),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Icon(Icons.home, color: Color.fromARGB(255, 16, 13, 65)),
+            Icon(Icons.person, color: Color.fromARGB(255, 22, 25, 93)),
+            Icon(Icons.settings, color: Color.fromARGB(255, 36, 32, 86)),
           ],
         ),
       ),
