@@ -1,4 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:timeit/hod.dart';
+
+// Placeholder for the Registration screens
+
+
+class FacultyRegistrationScreen extends StatelessWidget {
+  const FacultyRegistrationScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Faculty Registration')),
+      body: const Center(child: Text('Faculty Registration Screen')),
+    );
+  }
+}
+
+class StudentRegistrationScreen extends StatelessWidget {
+  const StudentRegistrationScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Student Registration')),
+      body: const Center(child: Text('Student Registration Screen')),
+    );
+  }
+}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -7,9 +35,12 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
-    with SingleTickerProviderStateMixin {
+class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStateMixin {
   TabController? _tabController;
+  String? selectedRole; // To store the selected role
+  String? _errorText; // To store error text for role selection
+
+  final List<String> roles = ['H.O.D', 'Faculty', 'Student']; // Available roles
 
   @override
   void initState() {
@@ -26,12 +57,12 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     // This method returns the same UI structure for both "Sign In" and "Sign Up"
-    Widget buildForm(String buttonText, String screenTitle) {
+    Widget buildSignInForm() {
       return Column(
         children: [
           const SizedBox(height: 10),
           Text(
-            screenTitle,
+            'Welcome Back!',
             style: const TextStyle(
               fontSize: 30,
               color: Color(0XFF0B0B60),
@@ -41,18 +72,16 @@ class _LoginScreenState extends State<LoginScreen>
               fontFamily: 'time',
             ),
           ),
-          const SizedBox(height: 20), // Adjust spacing between text and logo
-          // Logo Image
+          const SizedBox(height: 20),
           Image.asset(
-            'assets/images/lissahlogo.png', // Replace with your logo path
-            height: 175, // Adjust height as needed
-            width: 175, // Adjust width as needed
+            'assets/images/lissahlogo.png.jpg', // Replace with your logo path
+            height: 175,
+            width: 175,
           ),
           const SizedBox(height: 20),
-          // Email Input Field
+          // Existing email and password fields for Sign In
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 20.0), // Adds margin to both sides
+            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adds margin to both sides
             child: SizedBox(
               height: 60,
               child: Card(
@@ -76,8 +105,7 @@ class _LoginScreenState extends State<LoginScreen>
           const SizedBox(height: 25),
           // Password Input Field
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 20.0), // Same margin for consistency
+            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Same margin for consistency
             child: SizedBox(
               height: 60,
               child: Card(
@@ -100,37 +128,143 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
           const SizedBox(height: 2.0),
-          // Forgot Password Text Button
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 17.0),
-              child: TextButton(
-                onPressed: () {
-                  print('Forget Password clicked');
-                },
-                style: TextButton.styleFrom(foregroundColor: Colors.red),
-                child: const Text('Forget Password?'),
-              ),
-            ),
-          ),
-          // Elevated Button
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: ElevatedButton(
               onPressed: () {
-                print(buttonText);
+                print("Sign In");
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0XFF0B0B60), // Button background color
+                backgroundColor: const Color(0XFF0B0B60),
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 140),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
+              child: const Text(
+                'Sign In',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget buildSignUpForm() {
+      return Column(
+        children: [
+          const SizedBox(height: 10),
+          Text(
+            'Create Account',
+            style: const TextStyle(
+              fontSize: 30,
+              color: Color(0XFF0B0B60),
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.0,
+              wordSpacing: 3.0,
+              fontFamily: 'time',
+            ),
+          ),
+          const SizedBox(height: 20),
+          Image.asset(
+            'assets/images/lissahlogo.png.jpg',
+            height: 175,
+            width: 175,
+          ),
+          const SizedBox(height: 20),
+          // Only for Sign Up, add Role Selection Dropdown
+          const SizedBox(height: 20),
+          const Text(
+            'Please select your role:',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: DropdownButton<String>(
+                value: selectedRole,
+                hint: const Text("Select Role"),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedRole = newValue;
+                  });
+                },
+                isExpanded: true,
+                underline: const SizedBox(),
+                items: roles.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          // Error Text for role selection
+          if (_errorText != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
-                buttonText,
-                style: const TextStyle(color: Colors.white),
+                _errorText!,
+                style: const TextStyle(color: Colors.red, fontSize: 14),
+              ),
+            ),
+          const SizedBox(height: 25),
+          // Elevated Button for Sign Up
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // if (selectedRole == null || selectedRole!.isEmpty) {
+                //   setState(() {
+                //     _errorText = "Please select a role.";
+                //   });
+                // } else {
+                //   setState(() {
+                //     _errorText = null;
+                //   });
+
+                //   // Show a SnackBar and navigate to the appropriate registration screen based on the role
+                //   ScaffoldMessenger.of(context).showSnackBar(
+                //     SnackBar(content: Text('Role $selectedRole selected!')),
+                //   );
+
+                //   // Navigate based on the selected role
+                //   if (selectedRole == 'H.O.D') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HODRegistrationScreen()),
+                    );
+                //   } else if (selectedRole == 'Faculty') {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => const FacultyRegistrationScreen()),
+                //     );
+                //   } else if (selectedRole == 'Student') {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => const StudentRegistrationScreen()),
+                //     );
+                //   }
+                // }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0XFF0B0B60),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 140),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              child: const Text(
+                'Next',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ),
@@ -149,49 +283,36 @@ class _LoginScreenState extends State<LoginScreen>
           ),
         ),
         leading: Padding(
-          padding: const EdgeInsets.only(
-              left: 7.0, top: 7.0), // Adjust padding as needed
+          padding: const EdgeInsets.only(left: 7.0, top: 7.0),
           child: Align(
-            alignment: Alignment.topLeft, // Ensures alignment at the top-left
+            alignment: Alignment.topLeft,
             child: IconButton(
-              icon: const Icon(Icons.arrow_back,
-                  color: Colors.white, size: 23.0), // Adjust size if needed
+              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 23.0),
               onPressed: () {
-                Navigator.pop(context); // Return to the previous screen
+                Navigator.pop(context);
               },
             ),
           ),
         ),
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white60,
           tabs: const [
             Tab(text: "Sign In"),
             Tab(text: "Sign Up"),
           ],
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white70,
         ),
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
-          buildForm("Sign In", "Welcome Back!"),
-          buildForm("Sign Up", "Create Account"),
-          const Align()
+          buildSignInForm(),
+          buildSignUpForm(),
         ],
-      ),
-      bottomNavigationBar: Container(
-        width: double.maxFinite,
-        height: 80,
-        decoration: const BoxDecoration(
-          color: Color(0XFF0B0B60),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40),
-            topRight: Radius.circular(40),
-          ),
-        ),
       ),
     );
   }
 }
+
+

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeit/logn_screen%20copy.dart';
+import 'package:timeit/logn_screen.dart';
 
 class CollegeCodeScreen extends StatefulWidget {
   const CollegeCodeScreen({super.key});
@@ -23,7 +23,7 @@ class _CollegeCodeScreenState extends State<CollegeCodeScreen> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 180,
-        backgroundColor: const Color(0XFF0B0B60),
+        backgroundColor: const Color.fromARGB(255, 45, 69, 106),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.only(
             bottomStart: Radius.circular(40),
@@ -31,8 +31,11 @@ class _CollegeCodeScreenState extends State<CollegeCodeScreen> {
           ),
         ),
         title: const Text(
-          'Hi',
-          style: TextStyle(color: Colors.white),
+          'College Code',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'assets/fonts/RobotoCondensed-Regular.ttf'
+            ),
         ),
         centerTitle: true,
       ),
@@ -94,7 +97,7 @@ class _CollegeCodeScreenState extends State<CollegeCodeScreen> {
                     const SnackBar(content: Text('campus code accepted!')),
                   );
 
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const LoginScreen()),
                   );

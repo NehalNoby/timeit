@@ -120,7 +120,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
           children: const [
             Icon(Icons.home, color: Color.fromARGB(255, 16, 13, 65)),
             Icon(Icons.person, color: Color.fromARGB(255, 22, 25, 93)),
-            Icon(Icons.settings, color: Color.fromARGB(255, 36, 32, 86)),
+            Icon(Icons.settings, color: Color.fromARGB(255, 23, 7, 62)),
           ],
         ),
       ),
