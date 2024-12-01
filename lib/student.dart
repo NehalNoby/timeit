@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StudentRegistrationScreen extends StatefulWidget {
-  const StudentRegistrationScreen({Key? key}) : super(key: key);
+  const StudentRegistrationScreen({super.key});
 
   @override
   State<StudentRegistrationScreen> createState() =>
@@ -26,7 +26,7 @@ class _StudentRegistrationScreenState
       appBar: AppBar(
         toolbarHeight: 180,
         title: const Text(
-          'Faculty Registration',
+          'Student Registration',
           style: TextStyle(
             color: Colors.white,
             fontSize: 22,

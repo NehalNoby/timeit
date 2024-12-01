@@ -1,32 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:timeit/hod.dart';
+import 'package:timeit/faculty.dart';
+import 'package:timeit/student.dart';
 
 // Placeholder for the Registration screens
-
-
-class FacultyRegistrationScreen extends StatelessWidget {
-  const FacultyRegistrationScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Faculty Registration')),
-      body: const Center(child: Text('Faculty Registration Screen')),
-    );
-  }
-}
-
-class StudentRegistrationScreen extends StatelessWidget {
-  const StudentRegistrationScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Student Registration')),
-      body: const Center(child: Text('Student Registration Screen')),
-    );
-  }
-}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -61,9 +38,9 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
       return Column(
         children: [
           const SizedBox(height: 10),
-          Text(
+          const Text(
             'Welcome Back!',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 30,
               color: Color(0XFF0B0B60),
               fontWeight: FontWeight.bold,
@@ -155,9 +132,9 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
       return Column(
         children: [
           const SizedBox(height: 10),
-          Text(
+          const Text(
             'Create Account',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 30,
               color: Color(0XFF0B0B60),
               fontWeight: FontWeight.bold,
@@ -222,38 +199,39 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
             padding: const EdgeInsets.all(15.0),
             child: ElevatedButton(
               onPressed: () {
-                // if (selectedRole == null || selectedRole!.isEmpty) {
-                //   setState(() {
-                //     _errorText = "Please select a role.";
-                //   });
-                // } else {
-                //   setState(() {
-                //     _errorText = null;
-                //   });
+                if (selectedRole == null || selectedRole!.isEmpty) {
+  setState(() {
+    _errorText = "Please select a role.";
+  });
+} else {
+  setState(() {
+    _errorText = null;
+  });
 
-                //   // Show a SnackBar and navigate to the appropriate registration screen based on the role
-                //   ScaffoldMessenger.of(context).showSnackBar(
-                //     SnackBar(content: Text('Role $selectedRole selected!')),
-                //   );
+  // Show a SnackBar and navigate to the appropriate registration screen based on the role
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Role $selectedRole selected!')),
+  );
 
-                //   // Navigate based on the selected role
-                //   if (selectedRole == 'H.O.D') {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HODRegistrationScreen()),
-                    );
-                //   } else if (selectedRole == 'Faculty') {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(builder: (context) => const FacultyRegistrationScreen()),
-                //     );
-                //   } else if (selectedRole == 'Student') {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(builder: (context) => const StudentRegistrationScreen()),
-                //     );
-                //   }
-                // }
+  // Navigate based on the selected role
+  if (selectedRole == 'H.O.D') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HODRegistrationScreen()),
+    );
+  } else if (selectedRole == 'Faculty') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const FacultyRegistrationScreen()),
+    );
+  } else if (selectedRole == 'Student') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const StudentRegistrationScreen()),
+    );
+  }
+}
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0XFF0B0B60),
