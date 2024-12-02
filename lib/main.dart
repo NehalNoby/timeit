@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeit/logn_screen.dart';
-import 'package:timeit/registration.dart';
 import 'package:timeit/collage_code_screen.dart';
-import 'package:timeit/hod.dart';
-import 'package:timeit/faculty.dart';
-import 'package:timeit/student.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: const CollegeCodeScreen(),
     );
   }
 }

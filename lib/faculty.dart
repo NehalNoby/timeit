@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FacultyRegistrationScreen extends StatefulWidget {
-  const FacultyRegistrationScreen({Key? key}) : super(key: key);
+  const FacultyRegistrationScreen({super.key});
 
   @override
   State<FacultyRegistrationScreen> createState() =>

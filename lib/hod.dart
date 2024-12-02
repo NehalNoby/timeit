@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HODRegistrationScreen extends StatefulWidget {
-  const HODRegistrationScreen({Key? key}) : super(key: key);
+  const HODRegistrationScreen({super.key});
 
   @override
   State<HODRegistrationScreen> createState() =>
