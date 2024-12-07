@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class SelectionScreen extends StatefulWidget {
+  const SelectionScreen({super.key});
+
   @override
   _SelectionScreenState createState() => _SelectionScreenState();
 }
@@ -42,11 +44,17 @@ class _SelectionScreenState extends State<SelectionScreen> {
             bottomEnd: Radius.circular(40),
           ),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context); // Navigates back to the previous screen
-          },
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 7.0, top: 7.0),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 23.0),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,9 +95,9 @@ class _SelectionScreenState extends State<SelectionScreen> {
             onPressed: () {},
           ),
           const SizedBox(width: 8),
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Colors.blue,
-            child: const Icon(Icons.person, color: Colors.white),
+            child: Icon(Icons.person, color: Colors.white),
           ),
           const SizedBox(width: 16),
         ],

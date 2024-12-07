@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeit/student_formtt.dart'; // Import your next screen (could be LoginScreen)
 
 class StudentRegistrationScreen extends StatefulWidget {
   const StudentRegistrationScreen({super.key});
@@ -143,7 +144,7 @@ class _StudentRegistrationScreenState
                     'MSW',
                     'MCJ',
                   ]
-                      .map((department) => DropdownMenuItem<String>(
+                      .map((department) => DropdownMenuItem<String>( 
                             value: department,
                             child: Text(department),
                           ))
@@ -204,6 +205,15 @@ class _StudentRegistrationScreenState
                         print("Email: ${emailController.text}");
                         print("Phone: ${phoneController.text}");
                         print("Department: $selectedDepartment");
+
+                        // Dismiss the keyboard and navigate to the next screen
+                        FocusScope.of(context).unfocus();
+
+                        // Navigate to the next screen after successful registration
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MyApp()), // Replace with desired screen
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
