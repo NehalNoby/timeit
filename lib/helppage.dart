@@ -9,9 +9,9 @@ class HelpApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HelpPage(),
+      home: HelpPage(),
     );
   }
 }
@@ -25,9 +25,9 @@ class HelpPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Column(
+        title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               "Hello,",
               style: TextStyle(color: Colors.black, fontSize: 20),
@@ -138,11 +138,11 @@ class HelpPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 // Text Content
-                Expanded(
+                const Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "NAME",
                         style: TextStyle(
