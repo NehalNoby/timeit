@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:timeit/facultyhome.dart';
+import 'package:timeit/logn_screen.dart';
 
-=======
 import 'package:timeit/addmajor.dart';
->>>>>>> ddaaae47729ee11554e0c28fcd8e12f35bdd93b2
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,11 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-<<<<<<< HEAD
-      home: Facultyhome(),
-=======
-      home:  const AddMajor(),
->>>>>>> ddaaae47729ee11554e0c28fcd8e12f35bdd93b2
+      home: const LoginScreen(),
     );
   }
 }

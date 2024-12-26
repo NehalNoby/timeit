@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class SchedulePage extends StatelessWidget {
+  const SchedulePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +35,7 @@ class SchedulePage extends StatelessWidget {
                 children: [
                   DropdownButton<String>(
                     value: 'FIRST',
-                    items: [
+                    items: const [
                       DropdownMenuItem(
                         value: 'FIRST',
                         child: Text('FIRST',
@@ -41,7 +45,7 @@ class SchedulePage extends StatelessWidget {
                     ],
                     onChanged: (value) {},
                   ),
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundColor: Colors.blue,
                     child: Text(
                       ':)',
@@ -50,18 +54,18 @@ class SchedulePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Greeting Section
-              Text(
+              const Text(
                 'Hello,',
                 style: TextStyle(fontSize: 24, color: Colors.grey),
               ),
-              Text(
+              const Text(
                 'Hi Name',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
 
               // Schedule List Section
               Expanded(
@@ -129,7 +133,7 @@ class SchedulePage extends StatelessWidget {
           color: Colors.pink[100],
           borderRadius: BorderRadius.circular(16),
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -138,25 +142,25 @@ class SchedulePage extends StatelessWidget {
               children: [
                 Text(
                   '$index',
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   title,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   subject,
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: const TextStyle(fontSize: 14, color: Colors.grey),
                 ),
               ],
             ),
             TextButton(
               onPressed: () {},
-              child: Text('Detail', style: TextStyle(color: Colors.blue)),
+              child: const Text('Detail', style: TextStyle(color: Colors.blue)),
             ),
           ],
         ),
@@ -169,7 +173,7 @@ class SchedulePage extends StatelessWidget {
       onPressed: () {},
       child: Text(
         label,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
       ),
     );

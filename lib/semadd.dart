@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(SemAdd());
+  runApp(const SemAdd());
 }
 
 class SemAdd extends StatelessWidget {

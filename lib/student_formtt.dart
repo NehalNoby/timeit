@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:timeit/student.dart';
-import 'package:timeit/student_tt.dart';
 
 class StudentForm extends StatefulWidget {
   const StudentForm({super.key});
@@ -28,11 +27,7 @@ class _StudentFormState extends State<StudentForm> {
       Navigator.push(
         context,
         MaterialPageRoute(
-<<<<<<< HEAD
           builder: (context) => const StudentRegistrationScreen(),
-=======
-          builder: (context) => const StudentTimeTable(),
->>>>>>> ddaaae47729ee11554e0c28fcd8e12f35bdd93b2
         ),
       );
     }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Facultyhome());
+  runApp(const Facultyhome());
 }
 
 class Facultyhome extends StatelessWidget {
@@ -9,7 +9,7 @@ class Facultyhome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CustomPage(),
     );
