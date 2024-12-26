@@ -32,7 +32,7 @@ flutter:
   assets:
     - assets/  # This will include all files in the 'assets' directory.
     - assets/fonts/
-    - assets/images/lissahlogo.png  # Corrected image file extension.
+    - assets/images/lissahlogo.png.jpg  # Corrected image file extension.
 
   # To add custom fonts, you can specify fonts in the 'flutter' section:
   fonts:

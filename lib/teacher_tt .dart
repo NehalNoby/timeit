@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const StudentTimeTable());
+  runApp(const TeacherTimeTable());
 }
 
-class StudentTimeTable extends StatelessWidget {
-  const StudentTimeTable({super.key});
+class TeacherTimeTable extends StatelessWidget {
+  const TeacherTimeTable({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StudentTimeTablePage(),
+      home: TeacherTimeTablePage(),
     );
   }
 }
 
-class StudentTimeTablePage extends StatefulWidget {
-  const StudentTimeTablePage({super.key});
+class TeacherTimeTablePage extends StatefulWidget {
+  const TeacherTimeTablePage({super.key});
 
   @override
-  _StudentTimeTablePageState createState() => _StudentTimeTablePageState();
+  _TeacherTimeTablePageState createState() => _TeacherTimeTablePageState();
 }
 
-class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
+class _TeacherTimeTablePageState extends State<TeacherTimeTablePage> {
   int _selectedIndex = 0;
+
+  String _dropdownValue = 'FIRST'; // Dropdown selection state
 
   final List<String> _days = ['MON', 'TUE', 'WED', 'THR', 'FRI'];
 
   final List<List<String>> _timetable = [
-    ['MAJOR', 'AEC 1', 'MINOR 2', 'AEC 2', 'MDC'], // Monday
-    ['AEC 1', 'MAJOR', 'MDC', 'MINOR 2', 'AEC 2'], // Tuesday
-    ['MINOR 2', 'MDC', 'MAJOR', 'AEC 1', 'AEC 2'], // Wednesday
-    ['AEC 2', 'MINOR 2', 'AEC 1', 'MAJOR', 'MDC'], // Thursday
-    ['MDC', 'AEC 2', 'AEC 1', 'MINOR 2', 'MAJOR'], // Friday
+    ['Math', 'Physics', 'Chemistry', 'Biology', 'English'], // Monday
+    ['History', 'Math', 'Chemistry', 'Physics', 'Physical Education'], // Tuesday
+    ['Biology', 'English', 'Math', 'History', 'Chemistry'], // Wednesday
+    ['Physics', 'Biology', 'English', 'Math', 'History'], // Thursday
+    ['Chemistry', 'Physical Education', 'Biology', 'Math', 'English'], // Friday
   ];
 
   final List<List<String>> _facultyDetails = [
-    ['Prof. Smith', 'Dr. Johnson', 'Dr. Lee', 'Prof. Brown', 'Dr. Davis'], // Monday
-    ['Dr. Taylor', 'Prof. Jackson', 'Dr. White', 'Dr. Harris', 'Prof. Martin'], // Tuesday
-    ['Prof. Clark', 'Dr. Lewis', 'Dr. Walker', 'Prof. Young', 'Dr. Allen'], // Wednesday
-    ['Dr. Scott', 'Prof. King', 'Dr. Adams', 'Dr. Nelson', 'Prof. Carter'], // Thursday
-    ['Prof. Rodriguez', 'Dr. Mitchell', 'Dr. Perez', 'Dr. Evans', 'Prof. Thomas'], // Friday
+    ['Mr. Adams', 'Ms. Baker', 'Dr. Clark', 'Prof. Davis', 'Ms. Evans'], // Monday
+    ['Dr. Fisher', 'Mr. Green', 'Ms. Hall', 'Prof. Ives', 'Mr. Johnson'], // Tuesday
+    ['Prof. King', 'Ms. Lewis', 'Mr. Martinez', 'Dr. Nelson', 'Ms. O’Brien'], // Wednesday
+    ['Mr. Perez', 'Prof. Robinson', 'Dr. Smith', 'Ms. Taylor', 'Mr. White'], // Thursday
+    ['Ms. Young', 'Mr. Zane', 'Prof. Allen', 'Dr. Brooks', 'Ms. Carter'], // Friday
   ];
 
   final List<bool> _showDetails = [false, false, false, false, false];
@@ -50,8 +52,8 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 180,
-        backgroundColor: const Color(0xFF6200EA), // Deep Purple
+        toolbarHeight: 150,
+        backgroundColor: const Color(0xFF6200EA),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.only(
             bottomStart: Radius.circular(40),
@@ -68,14 +70,20 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Student Timetable',
+              'Teacher Timetable',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
             ),
             const SizedBox(height: 8),
             DropdownButton<String>(
-              value: 'FIRST',
-              items: const [DropdownMenuItem(value: 'FIRST', child: Text('FIRST'))],
-              onChanged: (value) {},
+              value: _dropdownValue,
+              items: ['FIRST', 'SECOND', 'THIRD']
+                  .map((value) => DropdownMenuItem(value: value, child: Text(value)))
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  _dropdownValue = value!;
+                });
+              },
               dropdownColor: const Color(0xFF6200EA),
               underline: const SizedBox.shrink(),
               iconEnabledColor: Colors.white,
@@ -84,7 +92,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
           ],
         ),
       ),
-      backgroundColor: const Color(0xFFF3E5F5), // Lavender
+      backgroundColor: const Color(0xFFF3E5F5),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -95,7 +103,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
               style: const TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF311B92), // Dark Purple
+                color: Color(0xFF311B92),
               ),
             ),
             const SizedBox(height: 20),
@@ -108,7 +116,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Color(0xFF9575CD), Color(0xFFD1C4E9)], // Purple gradient
+                          colors: [Color(0xFF9575CD), Color(0xFFD1C4E9)],
                         ),
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
@@ -123,7 +131,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                         children: [
                           ListTile(
                             leading: CircleAvatar(
-                              backgroundColor: const Color(0xFF7E57C2), // Medium Purple
+                              backgroundColor: const Color(0xFF7E57C2),
                               child: Text(
                                 (index + 1).toString(),
                                 style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -144,7 +152,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                               },
                               child: Text(
                                 _showDetails[index] ? 'Hide Details' : 'Details',
-                                style: const TextStyle(color: Color(0xFF311B92)), // Dark Purple
+                                style: const TextStyle(color: Color(0xFF311B92)),
                               ),
                             ),
                           ),
@@ -154,7 +162,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                               child: Container(
                                 padding: const EdgeInsets.all(8.0),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFEDE7F6), // Light Purple
+                                  color: const Color(0xFFEDE7F6),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Text(
@@ -187,7 +195,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
         },
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black54,
-        backgroundColor: const Color(0xFF6200EA), // Deep Purple
+        backgroundColor: const Color(0xFF6200EA),
         items: _days
             .map((day) => BottomNavigationBarItem(
                   icon: const Icon(Icons.calendar_today),

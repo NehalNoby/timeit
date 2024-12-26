@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeit/adminpage.dart';
+import 'package:timeit/addmajor.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AdminDashboardPage(),
+      home:  const AddMajor(),
     );
   }
 }
