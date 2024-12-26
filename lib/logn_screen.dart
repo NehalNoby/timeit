@@ -56,9 +56,9 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
             width: 175,
           ),
           const SizedBox(height: 20),
-          // Existing email and password fields for Sign In
+          // Email Input Field
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adds margin to both sides
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: SizedBox(
               height: 60,
               child: Card(
@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
           const SizedBox(height: 25),
           // Password Input Field
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Same margin for consistency
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: SizedBox(
               height: 60,
               child: Card(
@@ -90,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                 elevation: 10,
                 child: TextField(
                   style: const TextStyle(fontSize: 18),
+                  obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Password',
                     prefixIcon: const Icon(Icons.lock),
@@ -145,12 +146,12 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
           ),
           const SizedBox(height: 20),
           Image.asset(
-            'assets/images/lissahlogo.png.jpg',
+            'assets/images/lissahlogo.png.jpg', // Replace with your logo path
             height: 175,
             width: 175,
           ),
           const SizedBox(height: 20),
-          // Only for Sign Up, add Role Selection Dropdown
+          // Role Selection Dropdown
           const SizedBox(height: 20),
           const Text(
             'Please select your role:',
@@ -184,7 +185,6 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               ),
             ),
           ),
-          // Error Text for role selection
           if (_errorText != null)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -194,44 +194,41 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               ),
             ),
           const SizedBox(height: 25),
-          // Elevated Button for Sign Up
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: ElevatedButton(
               onPressed: () {
                 if (selectedRole == null || selectedRole!.isEmpty) {
-  setState(() {
-    _errorText = "Please select a role.";
-  });
-} else {
-  setState(() {
-    _errorText = null;
-  });
+                  setState(() {
+                    _errorText = "Please select a role.";
+                  });
+                } else {
+                  setState(() {
+                    _errorText = null;
+                  });
 
-  // Show a SnackBar and navigate to the appropriate registration screen based on the role
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Role $selectedRole selected!')),
-  );
+                  // Show a SnackBar and navigate to the appropriate registration screen based on the role
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Role $selectedRole selected!')),
+                  );
 
-  // Navigate based on the selected role
-  if (selectedRole == 'H.O.D') {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const HODRegistrationScreen()),
-    );
-  } else if (selectedRole == 'Faculty') {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const FacultyRegistrationScreen()),
-    );
-  } else if (selectedRole == 'Student') {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const StudentRegistrationScreen()),
-    );
-  }
-}
-
+                  if (selectedRole == 'H.O.D') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HODRegistrationScreen()),
+                    );
+                  } else if (selectedRole == 'Faculty') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const FacultyRegistrationScreen()),
+                    );
+                  } else if (selectedRole == 'Student') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const StudentRegistrationScreen()),
+                    );
+                  }
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0XFF0B0B60),
@@ -292,5 +289,3 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
     );
   }
 }
-
-

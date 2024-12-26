@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'student.dart';
+import 'package:timeit/student.dart';
+import 'package:timeit/student_tt.dart';
 
 class StudentForm extends StatefulWidget {
   const StudentForm({super.key});
@@ -10,7 +11,7 @@ class StudentForm extends StatefulWidget {
 
 class _StudentFormState extends State<StudentForm> {
   final _nameController = TextEditingController();
-  final _idController = TextEditingController();
+  
   final _courseController = TextEditingController();
   final _emailController = TextEditingController();
 
@@ -20,14 +21,18 @@ class _StudentFormState extends State<StudentForm> {
     if (_formKey.currentState?.validate() ?? false) {
       final student = Student(
         name: _nameController.text,
-        id: int.parse(_idController.text),
+        
         course: _courseController.text,
         email: _emailController.text,
       );
       Navigator.push(
         context,
         MaterialPageRoute(
+<<<<<<< HEAD
           builder: (context) => const StudentRegistrationScreen(),
+=======
+          builder: (context) => const StudentTimeTable(),
+>>>>>>> ddaaae47729ee11554e0c28fcd8e12f35bdd93b2
         ),
       );
     }
@@ -56,17 +61,9 @@ class _StudentFormState extends State<StudentForm> {
                   return null;
                 },
               ),
-              TextFormField(
-                controller: _idController,
-                decoration: const InputDecoration(labelText: 'ID'),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your ID';
-                  }
-                  return null;
-                },
-              ),
+              
+                
+                  
               TextFormField(
                 controller: _courseController,
                 decoration: const InputDecoration(labelText: 'Course'),
