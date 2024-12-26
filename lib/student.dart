@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeit/logn_screen.dart';
 
 class Student {
   final String name;
@@ -15,26 +16,28 @@ class Student {
 }
 
 class StudentRegistrationScreen extends StatelessWidget {
-  final Student student;
+ 
 
-  const StudentRegistrationScreen({super.key, required this.student});
+  const StudentRegistrationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(student.name),
+        title: const Text('f'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('ID: ${student.id}', style: const TextStyle(fontSize: 20)),
-            const SizedBox(height: 8),
-            Text('Course: ${student.course}', style: const TextStyle(fontSize: 20)),
-            const SizedBox(height: 8),
-            Text('Email: ${student.email}', style: const TextStyle(fontSize: 20)),
+            Text('ID: ffff', style: TextStyle(fontSize: 20)),
+            SizedBox(height: 8),
+            Text('Course: fff',
+                style: TextStyle(fontSize: 20)),
+            SizedBox(height: 8),
+            Text('Email: ffff',
+                style: TextStyle(fontSize: 20)),
           ],
         ),
       ),

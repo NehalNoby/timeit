@@ -33,9 +33,8 @@ class _CollegeCodeScreenState extends State<CollegeCodeScreen> {
         title: const Text(
           'College Code',
           style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'assets/fonts/RobotoCondensed-Regular.ttf'
-            ),
+              color: Colors.white,
+              fontFamily: 'assets/fonts/RobotoCondensed-Regular.ttf'),
         ),
         centerTitle: true,
       ),
@@ -99,14 +98,16 @@ class _CollegeCodeScreenState extends State<CollegeCodeScreen> {
 
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
                   );
                 }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0XFF0B0B60),
                 foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               ),
               child: const Text("Proceed"),
             ),

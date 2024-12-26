@@ -27,7 +27,7 @@ class _StudentFormState extends State<StudentForm> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => StudentRegistrationScreen(student: student),
+          builder: (context) => const StudentRegistrationScreen(),
         ),
       );
     }
