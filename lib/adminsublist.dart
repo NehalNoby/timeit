@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,8 @@ class SubjectListPage extends StatelessWidget {
     "AEC 2",
     "MDC",
   ];
+
+  SubjectListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +63,17 @@ class SubjectListPage extends StatelessWidget {
             children: [
               // Greeting Section
               const SizedBox(height: 16),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Hello,\nHi THERE",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 24,
                     backgroundColor: Color.fromARGB(255, 145, 180, 240),
                     child: Icon(Icons.person, color: Colors.white, size: 24),
@@ -133,7 +135,7 @@ class SubjectListPage extends StatelessWidget {
                         ),
                         child: ListTile(
                           title: Text(
-                            "${subjects[index]}",
+                            subjects[index],
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

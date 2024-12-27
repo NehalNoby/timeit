@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const StudentTimeTable());
-}
 
-class StudentTimeTable extends StatelessWidget {
-  const StudentTimeTable({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: StudentTimeTablePage(),
-    );
-  }
-}
 
 class StudentTimeTablePage extends StatefulWidget {
   const StudentTimeTablePage({super.key});

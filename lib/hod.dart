@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:timeit/hod_home.dart';
 
 class HODRegistrationScreen extends StatefulWidget {
   const HODRegistrationScreen({super.key});
 
   @override
-  State<HODRegistrationScreen> createState() =>
-      _HODRegistrationScreenState();
+  State<HODRegistrationScreen> createState() => _HODRegistrationScreenState();
 }
 
 class _HODRegistrationScreenState extends State<HODRegistrationScreen> {
@@ -23,8 +23,8 @@ class _HODRegistrationScreenState extends State<HODRegistrationScreen> {
   // List of departments
   final List<String> departments = [
     'Computer Science',
-    'pyscology',
-    'sociology',
+    'Psychology',
+    'Sociology',
     'BSW',
     'MSW',
     'MCJ',
@@ -208,6 +208,13 @@ class _HODRegistrationScreenState extends State<HODRegistrationScreen> {
                         print("Department: $selectedDepartment");
                         print("Contact: ${contactController.text}");
                         print("Email: ${emailController.text}");
+                        
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DashboardPage(),
+                          ),
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(

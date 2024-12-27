@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeit/facultyhome.dart';
 
 class FacultyRegistrationScreen extends StatefulWidget {
   const FacultyRegistrationScreen({super.key});
@@ -24,8 +25,8 @@ class _FacultyRegistrationScreenState
   // List of departments
   final List<String> departments = [
     'Computer Science',
-    'psycology',
-    'sociology',
+    'Psychology',
+    'Sociology',
     'BSW',
     'MSW',
     'MCJ',
@@ -209,6 +210,12 @@ class _FacultyRegistrationScreenState
                         print("Department: $selectedDepartment");
                         print("Contact: ${contactController.text}");
                         print("Email: ${emailController.text}");
+
+                        // Navigate to Faculty Home after successful registration
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Facultyhome()),
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(

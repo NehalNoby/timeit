@@ -18,7 +18,7 @@ class Student {
 }
 
 class StudentForm extends StatefulWidget {
-  const StudentForm({Key? key}) : super(key: key);
+  const StudentForm({super.key});
 
   @override
   _StudentFormState createState() => _StudentFormState();
@@ -70,7 +70,7 @@ class _StudentFormState extends State<StudentForm> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => StudentTimeTable(student: student),
+          builder: (context) => const StudentTimeTablePage(),
         ),
       );
     }
@@ -202,7 +202,7 @@ class _StudentFormState extends State<StudentForm> {
 class StudentTimeTable extends StatelessWidget {
   final Student student;
 
-  const StudentTimeTable({Key? key, required this.student}) : super(key: key);
+  const StudentTimeTable({super.key, required this.student});
 
   @override
   Widget build(BuildContext context) {
@@ -228,8 +228,4 @@ class StudentTimeTable extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(const MaterialApp(
-    home: StudentForm(),
-  ));
-}
+

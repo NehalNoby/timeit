@@ -224,7 +224,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                   padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 50),
                   textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                child: Text('Save'),
+                child: const Text('Save'),
               ),
             ],
           ),
