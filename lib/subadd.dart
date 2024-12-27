@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AddSubjectPage extends StatefulWidget {
+  const AddSubjectPage({super.key});
+
   @override
   _AddSubjectPageState createState() => _AddSubjectPageState();
 }
@@ -88,7 +90,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                 ),
                 child: TextFormField(
                   controller: _subjectNameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Subject Name',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
@@ -101,7 +103,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               
               // Department Name
               Container(
@@ -112,7 +114,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                 ),
                 child: TextFormField(
                   controller: _deptNameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Department Name',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
@@ -125,7 +127,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               // Faculty Name
               Container(
@@ -136,7 +138,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                 ),
                 child: TextFormField(
                   controller: _facultyNameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Faculty Name',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
@@ -149,7 +151,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               // Subject Type
               Container(
@@ -160,7 +162,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                 ),
                 child: TextFormField(
                   controller: _subjectTypeController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Subject Type',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
@@ -173,7 +175,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               // Subject Code
               Container(
@@ -184,7 +186,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                 ),
                 child: TextFormField(
                   controller: _subjectCodeController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Subject Code',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
@@ -197,7 +199,7 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               // Checkbox with Text
               Row(
@@ -210,19 +212,19 @@ class _AddSubjectPageState extends State<AddSubjectPage> {
                       });
                     },
                   ),
-                  Text("Is Fixed"),
+                  const Text("Is Fixed"),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Save Button
               ElevatedButton(
                 onPressed: _saveSubject,
-                child: Text('Save'),
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 50),
-                  textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 50),
+                  textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
+                child: Text('Save'),
               ),
             ],
           ),

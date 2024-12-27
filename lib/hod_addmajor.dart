@@ -54,12 +54,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 75.0, top: 04.0), // Add padding here
+        title: const Padding(
+          padding: EdgeInsets.only(left: 75.0, top: 04.0), // Add padding here
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,  // Align text to the start
             children: [
-              const Text(
+              Text(
                 "Subject Add",
                 style: TextStyle(
                   color: Colors.white,
@@ -122,10 +122,10 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.black54),
                               ),
                               const SizedBox(height: 4),
-                              SizedBox(
+                              const SizedBox(
                                 width: 200,
                                 child: TextField(
-                                  decoration: const InputDecoration(
+                                  decoration: InputDecoration(
                                     hintText: "Enter major details",
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(8)),

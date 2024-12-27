@@ -5,11 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CreateDepartmentsPage(),
     );
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CreateDepartmentsPage extends StatelessWidget {
-  const CreateDepartmentsPage({Key? key}) : super(key: key);
+  const CreateDepartmentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,12 +59,12 @@ class CreateDepartmentsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Header
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Hello,\nHi THERE",
                     style: TextStyle(
                       fontSize: 24,
@@ -72,7 +72,7 @@ class CreateDepartmentsPage extends StatelessWidget {
                       color: Color(0XFF0B0B60), // Bluish text color
                     ),
                   ),
-                  const CircleAvatar(
+                  CircleAvatar(
                     backgroundColor: Colors.blueAccent,
                     child: Icon(Icons.person, color: Colors.white),
                   ),

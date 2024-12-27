@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:timeit/facultyhome.dart';
-import 'package:timeit/logn_screen.dart';
-import 'package:timeit/collegecodedetailsadmin.dart';
-import 'package:timeit/subadd.dart';
-import 'package:timeit/admin_addmajor.dart';
+import 'package:timeit/student.dart';
+import 'package:timeit/student_formtt.dart';
+import 'package:timeit/student_tt.dart';
+import 'package:timeit/collage_code_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  AddSubjectPage(),
+      home:const StudentForm(),
     );
   }
 }

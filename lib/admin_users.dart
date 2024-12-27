@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class AdminUser extends StatelessWidget {
+  const AdminUser({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +29,7 @@ class AdminUser extends StatelessWidget {
         toolbarHeight: 80,
         title: Row(
           children: [
-            Text(
+            const Text(
               "Welcome Back!",
               style: TextStyle(
                 color: Colors.black,
@@ -33,11 +37,11 @@ class AdminUser extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             CircleAvatar(
               radius: 30,
               backgroundColor: Colors.blue[100],
-              child: Icon(
+              child: const Icon(
                 Icons.person,
                 color: Colors.blue,
                 size: 30,
@@ -51,8 +55,8 @@ class AdminUser extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               "Hello, Admin!",
               style: TextStyle(
                 fontSize: 30,
@@ -60,8 +64,8 @@ class AdminUser extends StatelessWidget {
                 color: Colors.black87,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               "Manage your users efficiently and access details with ease. Select a category below to proceed.",
               style: TextStyle(
                 fontSize: 16,
@@ -69,10 +73,10 @@ class AdminUser extends StatelessWidget {
                 height: 1.5,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Expanded(
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: [
                   UserCard(
                     title: "H.O.D's",
@@ -81,7 +85,7 @@ class AdminUser extends StatelessWidget {
                       // Navigate to HOD details
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   UserCard(
                     title: "Faculty",
                     icon: Icons.person_outline,
@@ -89,7 +93,7 @@ class AdminUser extends StatelessWidget {
                       // Navigate to Faculty details
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   UserCard(
                     title: "Student",
                     icon: Icons.people,
@@ -100,29 +104,29 @@ class AdminUser extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Center(
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Add your logout functionality here
                 },
-                icon: Icon(Icons.logout),
-                label: Text("Logout"),
+                icon: const Icon(Icons.logout),
+                label: const Text("Logout"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,
                   padding:
-                      EdgeInsets.symmetric(horizontal: 32, vertical: 14),
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
           ],
         ),
       ),
@@ -135,7 +139,7 @@ class UserCard extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
 
-  UserCard({
+  const UserCard({super.key, 
     required this.title,
     required this.icon,
     required this.onPressed,
@@ -147,7 +151,7 @@ class UserCard extends StatelessWidget {
       onTap: onPressed,
       borderRadius: BorderRadius.circular(16),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -155,7 +159,7 @@ class UserCard extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 15,
-              offset: Offset(0, 6),
+              offset: const Offset(0, 6),
             ),
           ],
         ),
@@ -170,17 +174,17 @@ class UserCard extends StatelessWidget {
                 size: 30,
               ),
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
                 color: Colors.black87,
               ),
             ),
-            Spacer(),
-            Icon(
+            const Spacer(),
+            const Icon(
               Icons.arrow_forward_ios,
               color: Colors.black45,
               size: 20,

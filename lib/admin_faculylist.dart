@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class FacultyList extends StatefulWidget {
+  const FacultyList({super.key});
+
   @override
   _FacultyListState createState() => _FacultyListState();
 }
@@ -36,7 +40,7 @@ class _FacultyListState extends State<FacultyList> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
@@ -44,8 +48,8 @@ class _FacultyListState extends State<FacultyList> {
             Navigator.pop(context); // Go back to previous screen
           },
         ),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 16, bottom: 16),
+        title: const Padding(
+          padding: EdgeInsets.only(left: 16, bottom: 16),
           child: Row(
             children: [
               Text(
@@ -68,10 +72,10 @@ class _FacultyListState extends State<FacultyList> {
               Spacer(),
               CircleAvatar(
                 radius: 20,
-                backgroundColor: const Color(0xFF486D77), // Muted Teal
+                backgroundColor: Color(0xFF486D77), // Muted Teal
                 child: Icon(
                   Icons.person,
-                  color: const Color(0xFFA8C3C8), // Soft Gray-Teal
+                  color: Color(0xFFA8C3C8), // Soft Gray-Teal
                   size: 25,
                 ),
               ),
@@ -82,7 +86,7 @@ class _FacultyListState extends State<FacultyList> {
       ),
       body: Scrollbar(
         thickness: 6.0,
-        radius: Radius.circular(10),
+        radius: const Radius.circular(10),
         interactive: true,
         child: CustomScrollView(
           slivers: [
@@ -97,19 +101,19 @@ class _FacultyListState extends State<FacultyList> {
                         TextField(
                           decoration: InputDecoration(
                             hintText: "Search",
-                            prefixIcon: Icon(Icons.search, color: const Color(0xFF12343B)), // Deep Teal
-                            contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                            prefixIcon: const Icon(Icons.search, color: Color(0xFF12343B)), // Deep Teal
+                            contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16),
-                              borderSide: BorderSide(color: const Color(0xFFA8C3C8)), // Soft Gray-Teal
+                              borderSide: const BorderSide(color: Color(0xFFA8C3C8)), // Soft Gray-Teal
                             ),
                             filled: true,
                             fillColor: const Color(0xFFD9E1E2), // Light Gray
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                           decoration: BoxDecoration(
                             color: const Color(0xFFD9E1E2), // Light Gray
                             borderRadius: BorderRadius.circular(16),
@@ -123,7 +127,7 @@ class _FacultyListState extends State<FacultyList> {
                                         value: department,
                                         child: Text(
                                           department,
-                                          style: TextStyle(fontSize: 16, color: const Color(0xFF12343B)), // Deep Teal
+                                          style: const TextStyle(fontSize: 16, color: Color(0xFF12343B)), // Deep Teal
                                         ),
                                       ))
                                   .toList(),
@@ -132,23 +136,23 @@ class _FacultyListState extends State<FacultyList> {
                                   selectedDepartment = value!;
                                 });
                               },
-                              icon: Icon(Icons.arrow_drop_down, color: const Color(0xFF12343B)), // Deep Teal
+                              icon: const Icon(Icons.arrow_drop_down, color: Color(0xFF12343B)), // Deep Teal
                             ),
                           ),
                         ),
-                        SizedBox(height: 24),
-                        Text(
+                        const SizedBox(height: 24),
+                        const Text(
                           "FACULTIES",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF0A1B2C), // Very Dark Blue
+                            color: Color(0xFF0A1B2C), // Very Dark Blue
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: 5, // Adjust based on the number of faculty cards needed
                           itemBuilder: (context, index) {
                             return FacultyCard(
@@ -178,7 +182,7 @@ class FacultyCard extends StatelessWidget {
   final String subject;
   final VoidCallback onPressed;
 
-  FacultyCard({
+  const FacultyCard({super.key, 
     required this.name,
     required this.subject,
     required this.onPressed,
@@ -189,7 +193,7 @@ class FacultyCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: const Color(0xFFD9E1E2), // Light Gray
           borderRadius: BorderRadius.circular(16),
@@ -197,44 +201,44 @@ class FacultyCard extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 10,
-              offset: Offset(0, 6),
+              offset: const Offset(0, 6),
             ),
           ],
         ),
         child: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 30,
-              backgroundColor: const Color(0xFF486D77), // Muted Teal
+              backgroundColor: Color(0xFF486D77), // Muted Teal
               child: Icon(
                 Icons.person,
-                color: const Color(0xFFA8C3C8), // Soft Gray-Teal
+                color: Color(0xFFA8C3C8), // Soft Gray-Teal
                 size: 30,
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0A1B2C), // Very Dark Blue
+                    color: Color(0xFF0A1B2C), // Very Dark Blue
                   ),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   subject,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
-                    color: const Color(0xFF12343B), // Deep Teal
+                    color: Color(0xFF12343B), // Deep Teal
                   ),
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             TextButton(
               onPressed: onPressed,
               style: TextButton.styleFrom(
@@ -243,11 +247,11 @@ class FacultyCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              child: Text(
+              child: const Text(
                 "Detail",
                 style: TextStyle(
                   fontSize: 16,
-                  color: const Color(0xFFD9E1E2), // Light Gray
+                  color: Color(0xFFD9E1E2), // Light Gray
                 ),
               ),
             ),

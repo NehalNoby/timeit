@@ -215,17 +215,17 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   if (selectedRole == 'H.O.D') {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const HODRegistrationScreen()),
+                      MaterialPageRoute(builder: (context) =>const HODRegistrationScreen()),
                     );
                   } else if (selectedRole == 'Faculty') {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const FacultyRegistrationScreen()),
+                      MaterialPageRoute(builder: (context) =>const FacultyRegistrationScreen()),
                     );
                   } else if (selectedRole == 'Student') {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const StudentRegistrationScreen()),
+                      MaterialPageRoute(builder: (context) =>const StudentRegistrationScreen()),
                     );
                   }
                 }

@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class StudentPage extends StatelessWidget {
+  const StudentPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +66,7 @@ class StudentPage extends StatelessWidget {
                 children: [
                   DropdownButton<String>(
                     value: 'FIRST',
-                    items: [
+                    items: const [
                       DropdownMenuItem(
                         value: 'FIRST',
                         child: Text('FIRST',
@@ -72,7 +76,7 @@ class StudentPage extends StatelessWidget {
                     ],
                     onChanged: (value) {},
                   ),
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundColor: Colors.blue,
                     child: Text(
                       ':)',
@@ -81,7 +85,7 @@ class StudentPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Search Section
               Center(
@@ -92,11 +96,11 @@ class StudentPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Student List Section
               Expanded(
@@ -134,11 +138,11 @@ class StudentPage extends StatelessWidget {
           color: const Color.fromARGB(255, 255, 186, 234),
           borderRadius: BorderRadius.circular(16),
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
+            const Row(
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.grey,
@@ -163,7 +167,7 @@ class StudentPage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {},
-              child: Text('Detail', style: TextStyle(color: Colors.blue)),
+              child: const Text('Detail', style: TextStyle(color: Colors.blue)),
             ),
           ],
         ),
@@ -176,7 +180,7 @@ class StudentPage extends StatelessWidget {
       onPressed: () {},
       child: Text(
         label,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
       ),
     );

@@ -167,12 +167,12 @@ class _CollegeDetailsPageState extends State<CollegeDetailsPage> {
             Center(
               child: ElevatedButton(
                 onPressed: _saveDetails,
-                child: const Text("Save"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF0B0B60),
                   padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
                   textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
+                child: const Text("Save"),
               ),
             ),
           ],

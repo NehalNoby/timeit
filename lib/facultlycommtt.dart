@@ -5,11 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CustomUI(),
     );
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CustomUI extends StatelessWidget {
-  const CustomUI({Key? key}) : super(key: key);
+  const CustomUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -105,9 +105,9 @@ class CustomUI extends StatelessWidget {
             Container(
               color: Colors.grey[200],
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
+                children: [
                   Text("MON"),
                   Text("TUE"),
                   Text(
